@@ -13,7 +13,7 @@ import jieba
 import uvicorn
         
 app = FastAPI(title="MDS5724 Group Project - Task2 - Demo", 
-              description="API for Text Classification", version="0.001")
+              description="API for Text Classification", version="0.003")
 
 class Payload(BaseModel):
     news_title: str = ""
@@ -21,7 +21,7 @@ class Payload(BaseModel):
 @app.on_event('startup')
 def load_model():
     jieba.initialize()
-    clf.model = load('model/topic_classification_model_v001.joblib')
+    clf.model = load('model/topic_classification_model_v003.joblib')
 
 
 @app.post('/predict')
